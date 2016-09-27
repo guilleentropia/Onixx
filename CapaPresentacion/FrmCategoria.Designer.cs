@@ -44,7 +44,7 @@
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -93,7 +93,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(770, 284);
+            this.tabPage1.Size = new System.Drawing.Size(790, 284);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -124,6 +124,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(210, 20);
             this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // btnBuscar
             // 
@@ -133,6 +134,7 @@
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnEliminar
             // 
@@ -199,7 +201,7 @@
             this.groupBox1.Controls.Add(this.btnEditar);
             this.groupBox1.Controls.Add(this.btnGuardar);
             this.groupBox1.Controls.Add(this.btnNuevo);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(16, 17);
             this.groupBox1.Name = "groupBox1";
@@ -217,12 +219,12 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Descripcion";
             // 
-            // textBox1
+            // txtDescripcion
             // 
-            this.textBox1.Location = new System.Drawing.Point(98, 60);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(243, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtDescripcion.Location = new System.Drawing.Point(98, 60);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(243, 20);
+            this.txtDescripcion.TabIndex = 3;
             // 
             // btnNuevo
             // 
@@ -277,6 +279,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmCategoria";
             this.Text = "Mantenimiento de Categoria";
+            this.Load += new System.EventHandler(this.FrmCategoria_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -310,7 +313,7 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ErrorProvider errorIcono;
         private System.Windows.Forms.ToolTip ttMensaje;
