@@ -51,6 +51,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
+            this.txtIdCategoria = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -144,6 +145,7 @@
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "&Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnImprimir
             // 
@@ -163,6 +165,7 @@
             this.chkEliminar.TabIndex = 5;
             this.chkEliminar.Text = "Eliminar";
             this.chkEliminar.UseVisualStyleBackColor = true;
+            this.chkEliminar.CheckedChanged += new System.EventHandler(this.chkEliminar_CheckedChanged);
             // 
             // lblTotal
             // 
@@ -188,6 +191,8 @@
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(724, 185);
             this.dataListado.TabIndex = 7;
+            this.dataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListado_CellContentClick);
+            this.dataListado.DoubleClick += new System.EventHandler(this.dataListado_DoubleClick);
             // 
             // Eliminar
             // 
@@ -197,6 +202,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtIdCategoria);
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.btnEditar);
             this.groupBox1.Controls.Add(this.btnGuardar);
@@ -234,6 +240,7 @@
             this.btnNuevo.TabIndex = 5;
             this.btnNuevo.Text = "&Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnGuardar
             // 
@@ -243,6 +250,7 @@
             this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnEditar
             // 
@@ -252,6 +260,7 @@
             this.btnEditar.TabIndex = 7;
             this.btnEditar.Text = "E&ditar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnCancelar
             // 
@@ -261,6 +270,7 @@
             this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // errorIcono
             // 
@@ -269,6 +279,14 @@
             // ttMensaje
             // 
             this.ttMensaje.IsBalloon = true;
+            // 
+            // txtIdCategoria
+            // 
+            this.txtIdCategoria.Location = new System.Drawing.Point(98, 19);
+            this.txtIdCategoria.Name = "txtIdCategoria";
+            this.txtIdCategoria.Size = new System.Drawing.Size(33, 20);
+            this.txtIdCategoria.TabIndex = 9;
+            this.txtIdCategoria.Visible = false;
             // 
             // FrmCategoria
             // 
@@ -317,5 +335,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ErrorProvider errorIcono;
         private System.Windows.Forms.ToolTip ttMensaje;
+        private System.Windows.Forms.TextBox txtIdCategoria;
     }
 }

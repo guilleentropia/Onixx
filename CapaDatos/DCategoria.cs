@@ -235,7 +235,7 @@ namespace CapaDatos
                 ParTextoBuscar.Value = Categoria.TextoBuscar;
                 SqlCmd.Parameters.Add(ParTextoBuscar);
 
-                SqlDataAdapter SqlDat = new SqlDataAdapter();
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
                 SqlDat.Fill(DtResultado);
             }
             catch (Exception)

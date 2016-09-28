@@ -26,7 +26,7 @@ namespace CapaNegocio
             return Obj.Editar(Obj);
         }
 
-        public static string Eliminar(int id, string descripcion)
+        public static string Eliminar(int id)
         {
             DCategoria Obj = new DCategoria();
             Obj.IdCategoria = id;
