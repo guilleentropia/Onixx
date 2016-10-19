@@ -42,6 +42,7 @@ namespace CapaPresentacion
             this.txtDescripcion.ReadOnly = !valor;
         }
 
+        // Habilitar los botones
         private void Botones()
         {
             if (this.IsNuevo || this.IsEditar)
@@ -51,7 +52,8 @@ namespace CapaPresentacion
                 this.btnGuardar.Enabled = true;
                 this.btnEditar.Enabled = false;
                 this.btnCancelar.Enabled = true;
-             }
+                this.ttMensaje.Active = true;
+            }
             else
             {
                 this.Habilitar(false);
@@ -59,6 +61,8 @@ namespace CapaPresentacion
                 this.btnGuardar.Enabled = false;
                 this.btnEditar.Enabled = true;
                 this.btnCancelar.Enabled = false;
+                this.ttMensaje.Active = false;
+
             }
         }
 
@@ -115,70 +119,7 @@ namespace CapaPresentacion
             this.txtDescripcion.Focus();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string rpta = "";
-                if (this.txtDescripcion.Text == string.Empty)
-                {
-                    MensajeError("No ingreso una descripcion para la Categoria");
-                    errorIcono.SetError(txtDescripcion, "Ingrese una Descripcion");
-                }
-                else
-                {
-                    if (this.IsNuevo)
-                    {
-                        rpta = NCategoria.Insertar(this.txtDescripcion.Text.Trim().ToUpper());
-                    }
-                    else
-                    {
-                        rpta = NCategoria.Editar(Convert.ToInt32(this.txtIdCategoria.Text),this.txtDescripcion.Text.Trim().ToUpper());
-                    }
-
-                    if(rpta.Equals("OK"))
-                    {
-                        if(this.IsNuevo)
-                        {
-                            this.MensajeOk("Se inserto correctamente el registro");
-                        }
-                        else
-                        {
-                            this.MensajeOk("Se edito correctamente el registro");
-                        }
-                    }
-                    else
-                    {
-                        this.MensajeError(rpta);
-                    }
-                    this.IsNuevo = false;
-                    this.IsEditar = false;
-                    this.Botones();
-                    this.Limpiar();
-                    this.Mostrar();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            if (!this.txtIdCategoria.Text.Equals(""))
-            {
-                this.IsEditar = true;
-                this.Botones();
-                this.Habilitar(true);
-
-
-            }
-            else
-            {
-                MensajeError("Debe seleccionar primero el registro a modificar");
-            }
-        }
+      
 
         private void dataListado_DoubleClick(object sender, EventArgs e)
         {
@@ -187,14 +128,7 @@ namespace CapaPresentacion
             this.tabControl1.SelectedIndex = 1;
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.IsEditar = false;
-            this.IsNuevo = false;
-            this.Botones();
-            this.Limpiar();
-            this.Habilitar(false);
-        }
+      
 
         private void chkEliminar_CheckedChanged(object sender, EventArgs e)
         {
@@ -217,7 +151,14 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+       
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            this.BuscarNombre();
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -256,5 +197,92 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
+
+      
+        private void btnNuevo_Click_1(object sender, EventArgs e)
+        {
+            this.IsNuevo = true;
+            this.IsEditar = false;
+            this.Botones();
+            this.Limpiar();
+            this.Habilitar(true);
+            this.txtDescripcion.Focus();
+        }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                string rpta = "";
+                if (this.txtDescripcion.Text == string.Empty)
+                {
+                    MensajeError("No ingreso una descripcion para la Categoria");
+                    errorIcono.SetError(txtDescripcion, "Ingrese una Descripcion");
+                }
+                else
+                {
+                    if (this.IsNuevo)
+                    {
+                        rpta = NCategoria.Insertar(this.txtDescripcion.Text.Trim().ToUpper());
+                    }
+                    else
+                    {
+                        rpta = NCategoria.Editar(Convert.ToInt32(this.txtIdCategoria.Text), this.txtDescripcion.Text.Trim().ToUpper());
+                    }
+
+                    if (rpta.Equals("OK"))
+                    {
+                        if (this.IsNuevo)
+                        {
+                            this.MensajeOk("Se inserto correctamente el registro");
+                        }
+                        else
+                        {
+                            this.MensajeOk("Se edito correctamente el registro");
+                        }
+                    }
+                    else
+                    {
+                        this.MensajeError(rpta);
+                    }
+                    this.IsNuevo = false;
+                    this.IsEditar = false;
+                    this.Botones();
+                    this.Limpiar();
+                    this.Mostrar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnEditar_Click_1(object sender, EventArgs e)
+        {
+            if (!this.txtIdCategoria.Text.Equals(""))
+            {
+                this.IsEditar = true;
+                this.Botones();
+                this.Habilitar(true);
+
+
+            }
+            else
+            {
+                MensajeError("Debe seleccionar primero el registro a modificar");
+            }
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            this.IsEditar = false;
+            this.IsNuevo = false;
+            this.Botones();
+            this.Limpiar();
+            this.Habilitar(false);
+        }
+
+        
     }
 }
