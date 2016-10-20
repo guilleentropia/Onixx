@@ -8,6 +8,6 @@ namespace CapaDatos
 {
     class Conexion
     {
-        public static string Cn = "Data Source =(local); Initial Catalog= Onixx; Integrated Security = true";
+        public static string Cn = "Data Source =GUILLE-NOTEBOOK\\SQLEXPRESS; Initial Catalog= Onixx; Integrated Security = true";
     }
 }
