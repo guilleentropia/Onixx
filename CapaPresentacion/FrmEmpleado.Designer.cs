@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class FrmCategoria
+    partial class FrmEmpleado
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCategoria));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEmpleado));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnImprimir = new System.Windows.Forms.Button();
@@ -47,6 +47,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.txtIdEmpleado = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
@@ -206,6 +207,7 @@
             this.groupBox1.Controls.Add(this.btnEditar);
             this.groupBox1.Controls.Add(this.btnGuardar);
             this.groupBox1.Controls.Add(this.btnNuevo);
+            this.groupBox1.Controls.Add(this.txtIdEmpleado);
             this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(16, 17);
@@ -268,6 +270,14 @@
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click_1);
             // 
+            // txtIdEmpleado
+            // 
+            this.txtIdEmpleado.Location = new System.Drawing.Point(98, 19);
+            this.txtIdEmpleado.Name = "txtIdEmpleado";
+            this.txtIdEmpleado.Size = new System.Drawing.Size(33, 20);
+            this.txtIdEmpleado.TabIndex = 9;
+            this.txtIdEmpleado.Visible = false;
+            // 
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(98, 60);
@@ -299,9 +309,9 @@
             this.lblEntidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.lblEntidad.Location = new System.Drawing.Point(12, 32);
             this.lblEntidad.Name = "lblEntidad";
-            this.lblEntidad.Size = new System.Drawing.Size(177, 24);
+            this.lblEntidad.Size = new System.Drawing.Size(170, 24);
             this.lblEntidad.TabIndex = 5;
-            this.lblEntidad.Text = "CATEGORIAS";
+            this.lblEntidad.Text = "EMPLEADOS";
             // 
             // pictureBox1
             // 
@@ -313,7 +323,7 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // FrmCategoria
+            // FrmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -321,9 +331,9 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblEntidad);
             this.Controls.Add(this.tabControl1);
-            this.Name = "FrmCategoria";
-            this.Text = "Mantenimiento de Categoria";
-            this.Load += new System.EventHandler(this.FrmCategoria_Load);
+            this.Name = "FrmEmpleado";
+            this.Text = "Mantenimiento de Empleado";
+            this.Load += new System.EventHandler(this.FrmEmpleado_Load_1);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -354,7 +364,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ErrorProvider errorIcono;
         private System.Windows.Forms.ToolTip ttMensaje;
-        private System.Windows.Forms.TextBox txtIdCategoria;
+        private System.Windows.Forms.TextBox txtIdEmpleado;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnEliminar;

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -127,12 +129,59 @@ namespace CapaDatos
                 ParIdEmpleado.Direction = ParameterDirection.Output;
                 SqlCmd.Parameters.Add(ParIdEmpleado);
 
-                SqlParameter ParDescripcion = new SqlParameter();
-                ParDescripcion.ParameterName = "@apellido";
-                ParDescripcion.SqlDbType = SqlDbType.VarChar;
-                ParDescripcion.Size = 50;
-                ParDescripcion.Value = Empleado.Apellido;
-                SqlCmd.Parameters.Add(ParDescripcion);
+                SqlParameter ParApellido = new SqlParameter();
+                ParApellido.ParameterName = "@apellido";
+                ParApellido.SqlDbType = SqlDbType.VarChar;
+                ParApellido.Size = 50;
+                ParApellido.Value = Empleado.Apellido;
+                SqlCmd.Parameters.Add(ParApellido);
+
+                SqlParameter ParNombre = new SqlParameter();
+                ParNombre.ParameterName = "@nombre";
+                ParNombre.SqlDbType = SqlDbType.VarChar;
+                ParNombre.Size = 50;
+                ParNombre.Value = Empleado.Nombre;
+                SqlCmd.Parameters.Add(ParNombre);
+
+
+                SqlParameter ParDni = new SqlParameter();
+                ParDni.ParameterName = "@dni";
+                ParDni.SqlDbType = SqlDbType.Int;
+                ParDni.Value = Empleado.DNI;
+                SqlCmd.Parameters.Add(ParDni);
+
+                SqlParameter ParDomicilio = new SqlParameter();
+                ParDomicilio.ParameterName = "@domicilio";
+                ParDomicilio.SqlDbType = SqlDbType.VarChar;
+                ParDomicilio.Size = 150;
+                ParDomicilio.Value = Empleado.Domicilio;
+                SqlCmd.Parameters.Add(ParDomicilio);
+
+
+                SqlParameter ParCelular = new SqlParameter();
+                ParCelular.ParameterName = "@celular";
+                ParCelular.SqlDbType = SqlDbType.Int;
+                ParCelular.Value = Empleado.Celular;
+                SqlCmd.Parameters.Add(ParCelular);
+
+
+                SqlParameter ParMail = new SqlParameter();
+                ParMail.ParameterName = "@mail";
+                ParMail.SqlDbType = SqlDbType.VarChar;
+                ParMail.Size = 150;
+                ParMail.Value = Empleado.Domicilio;
+                SqlCmd.Parameters.Add(ParMail);
+
+                SqlParameter ParEmpresaId = new SqlParameter();
+                ParEmpresaId.ParameterName = "@idempresa";
+                ParEmpresaId.SqlDbType = SqlDbType.Int;
+                ParEmpresaId.Value = Empleado.IdEmpresa;
+                SqlCmd.Parameters.Add(ParEmpresaId);
+
+
+
+
+
 
                 rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se ingreso el registro";
 
@@ -178,9 +227,53 @@ namespace CapaDatos
                 SqlParameter ParApellido = new SqlParameter();
                 ParApellido.ParameterName = "@apellido";
                 ParApellido.SqlDbType = SqlDbType.VarChar;
-                ParApellido.Size = 100;
+                ParApellido.Size = 50;
                 ParApellido.Value = Empleado.Apellido;
                 SqlCmd.Parameters.Add(ParApellido);
+
+                SqlParameter ParNombre = new SqlParameter();
+                ParNombre.ParameterName = "@nombre";
+                ParNombre.SqlDbType = SqlDbType.VarChar;
+                ParNombre.Size = 50;
+                ParNombre.Value = Empleado.Nombre;
+                SqlCmd.Parameters.Add(ParNombre);
+
+
+                SqlParameter ParDni = new SqlParameter();
+                ParDni.ParameterName = "@dni";
+                ParDni.SqlDbType = SqlDbType.Int;
+                ParDni.Value = Empleado.DNI;
+                SqlCmd.Parameters.Add(ParDni);
+
+                SqlParameter ParDomicilio = new SqlParameter();
+                ParDomicilio.ParameterName = "@domicilio";
+                ParDomicilio.SqlDbType = SqlDbType.VarChar;
+                ParDomicilio.Size = 150;
+                ParDomicilio.Value = Empleado.Domicilio;
+                SqlCmd.Parameters.Add(ParDomicilio);
+
+
+                SqlParameter ParCelular = new SqlParameter();
+                ParCelular.ParameterName = "@celular";
+                ParCelular.SqlDbType = SqlDbType.Int;
+                ParCelular.Value = Empleado.Celular;
+                SqlCmd.Parameters.Add(ParCelular);
+
+
+                SqlParameter ParMail = new SqlParameter();
+                ParMail.ParameterName = "@mail";
+                ParMail.SqlDbType = SqlDbType.VarChar;
+                ParMail.Size = 150;
+                ParMail.Value = Empleado.Domicilio;
+                SqlCmd.Parameters.Add(ParMail);
+
+                SqlParameter ParEmpresaId = new SqlParameter();
+                ParEmpresaId.ParameterName = "@idempresa";
+                ParEmpresaId.SqlDbType = SqlDbType.Int;
+                ParEmpresaId.Value = Empleado.IdEmpresa;
+                SqlCmd.Parameters.Add(ParEmpresaId);
+
+
 
                 rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se actualizo el registro";
 
@@ -291,7 +384,7 @@ namespace CapaDatos
                 ParTextoBuscar.ParameterName = "@textobuscar";
                 ParTextoBuscar.SqlDbType = SqlDbType.VarChar;
                 ParTextoBuscar.Size = 100;
-                ParTextoBuscar.Value = Categoria.TextoBuscar;
+                ParTextoBuscar.Value = Empleado.TextoBuscar;
                 SqlCmd.Parameters.Add(ParTextoBuscar);
 
                 SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
